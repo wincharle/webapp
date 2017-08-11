@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: #000;
+			font-size: 12px;
+		}
+		.iphone {
+			width: 340px;
+			height: 540px;
+			background: #fff;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -170px;
+			margin-top: -270px;
+		}
+	</style>
+	<script src="../js/lib/jquery.js"></script>
+	<script src="../js/H5ComponentBase.js"></script>
+	<link rel="stylesheet" href="../css/H5ComponentBase.css">
+</head>
+<body>
+	<div class="iphone">
+		
+	</div>
+
+	<script>
+		var cfg = {
+			type: 'base',
+			text: '',
+			width: 514,
+			height: 306,
+			bg: '../imgs/p1_people.png',
+			css: {
+				bottom: 0,
+				opacity: 0
+			},
+			animateIn: {bottom: 80, opacity: 1},
+			animateOut: {bottom: 0, opacity: 0},
+			center: true
+		};
+
+		var h5 = new H5ComponentBase('myname', cfg);
+		$('.iphone').append(h5);
+
+		var leave = true;
+		$('body').on('click', function() {
+			leave = !leave;
+			$('.h5_component').trigger(leave ? 'onLeave' : 'onLoad');
+		});
+	</script>
+</body>
+</html>
